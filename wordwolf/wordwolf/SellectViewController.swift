@@ -19,6 +19,11 @@ class SellectViewController: UIViewController {
 
     }
 
+    
+    
+    @IBAction func tapBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func tapWolfButton(_ sender: UIButton) {
         tagNumber = sender.tag
         print(tagNumber)
