@@ -14,7 +14,15 @@ class MemberSetViewController: UIViewController{
     @IBOutlet weak var testLabel: UILabel!//ラベル
      
     @IBOutlet weak var stepper: UIStepper!
+    var memberNames = [String]()//メンバーの名前を格納する配列
     
+    @IBAction func tapEnterButton(_ sender: Any, textFields: [UITextField]) {
+        let memberNum = textFields.count
+        for i in 0...memberNum-1{
+            memberNames.append(textFields[i].text!)
+            textFields[i].text = ""
+        }
+    }
     @IBAction func tapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -37,12 +45,20 @@ class MemberSetViewController: UIViewController{
     
     //入力欄を増やす
     func setNameTextField(num: Int){
+        var textFields = [UITextField]()
         // 入力された数だけループします。
         for i in 0...num-1{
-            let textField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40)) // textFieldを作る。スクリーンの横幅取得して真ん中に。
-            textField.backgroundColor = UIColor.white // テキストフィールドの色
-            textField.setUnderLine()
-            self.view.addSubview(textField) // scrollViewにaddしましょう。
+            var oneTextField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40))
+            oneTextField.backgroundColor = UIColor.red // テキストフィールドの色
+            oneTextField.setUnderLine()
+            textFields.append(oneTextField)
+        }
+        for i in 0...num-1{
+//            let textField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40)) // textFieldを作る。スクリーンの横幅取得して真ん中に。
+//            textField.backgroundColor = UIColor.white // テキストフィールドの色
+//            textField.setUnderLine()
+            
+            self.view.addSubview(textFields[i]) // scrollViewにaddしましょう。
         }
     }
     //入力欄を減らす
