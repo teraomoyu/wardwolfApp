@@ -14,64 +14,71 @@ class MemberSetViewController: UIViewController{
     @IBOutlet weak var testLabel: UILabel!//ラベル
      
     @IBOutlet weak var stepper: UIStepper!
-    var memberNames = [String]()//メンバーの名前を格納する配列
+    var memberNames = [String?]()//メンバーの名前を格納する配列
     
-    @IBAction func tapEnterButton(_ sender: Any, textFields: [UITextField]) {
+    var textFields = [UITextField]()
+    
+    @IBAction func tapEnterButton(_ sender: Any) {
         let memberNum = textFields.count
         for i in 0...memberNum-1{
-            memberNames.append(textFields[i].text!)
-            textFields[i].text = ""
+          memberNames.append(textFields[i].text!)
+          textFields[i].text = ""
         }
+        print(memberNames.count)
     }
+    
     @IBAction func tapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func changeStepperValue(sender: UIStepper) {
+        let textFieldNum = textFields.count
         testLabel.text = "\(String(format: "%.0f", sender.value))"//人数を変えた時に少数にならないようにformat設定
-        imageRemove()
-        setNameTextField(num: Int(sender.value))
+        
+        if Int(sender.value) < textFieldNum{
+            textFieldRemove(num: Int(sender.value), tNum: textFieldNum)
+//            setNameTextField(num: Int(sender.value), tNum: textFieldNum)
+        }else{
+            setNameTextField(num: Int(sender.value), tNum: textFieldNum)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let member_num = tappedBtnTag
-        testLabel.text = "\(member_num!)"//!をつけたらOptionalが付かなくなった
-        stepper.minimumValue = Double(Int(member_num!)) //狐か狼かによって最小値を変える
+        let memberNum = tappedBtnTag
+        testLabel.text = "\(memberNum!)"//!をつけたらOptionalが付かなくなった
+        stepper.minimumValue = Double(Int(memberNum!)) //狐か狼かによって最小値を変える
         print("### tappedBtnTag:", tappedBtnTag as Any)
-        setNameTextField(num: tappedBtnTag!)
+        setNameTextField(num: tappedBtnTag!, tNum: 0)
 
         // Do any additional setup after loading the view.
     }
     
     //入力欄を増やす
-    func setNameTextField(num: Int){
-        var textFields = [UITextField]()
+    func setNameTextField(num: Int, tNum: Int){
         // 入力された数だけループします。
-        for i in 0...num-1{
-            var oneTextField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40))
+        for i in tNum...num-1{
+            let oneTextField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40))
             oneTextField.backgroundColor = UIColor.red // テキストフィールドの色
             oneTextField.setUnderLine()
+            oneTextField.tag = i
             textFields.append(oneTextField)
         }
-        for i in 0...num-1{
-//            let textField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40)) // textFieldを作る。スクリーンの横幅取得して真ん中に。
-//            textField.backgroundColor = UIColor.white // テキストフィールドの色
-//            textField.setUnderLine()
-            
+        for i in tNum...num-1{
             self.view.addSubview(textFields[i]) // scrollViewにaddしましょう。
         }
     }
     //入力欄を減らす
-    func imageRemove(){
-            // self.viewの上に乗っているオブジェクトを順番に取得する
-            for v in view.subviews {
-                // オブジェクトの型がUIImageView型で、タグ番号が1〜5番のオブジェクトを取得する
-                if let v = v as? UITextField  {
-                    // そのオブジェクトを親のviewから取り除く
-                    v.removeFromSuperview()
-                }
+    func textFieldRemove(num: Int, tNum: Int){
+        textFields.removeSubrange(num...tNum-1)
+        // self.viewの上に乗っているオブジェクトを順番に取得する
+        for v in view.subviews {
+            // オブジェクトの型がUIImageView型で、タグ番号が1〜5番のオブジェクトを取得する
+            if let v = v as? UITextField, v.tag >= num{
+                // そのオブジェクトを親のviewから取り除く
+                v.removeFromSuperview()
             }
         }
+    }
 }
 
 //テキストフィールドを下線にする

@@ -162,7 +162,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="決定"/>
                                 <connections>
-                                    <action selector="tapEnterButton:" destination="XOg-Mb-iZS" eventType="touchUpInside" id="81Z-ze-zfy"/>
+                                    <action selector="tapEnterButton:" destination="XOg-Mb-iZS" eventType="touchUpInside" id="ySU-gt-Rkz"/>
+                                    <segue destination="RsB-oU-7zP" kind="presentation" id="bnL-ju-7eQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -184,7 +185,7 @@
             <objects>
                 <viewController id="RsB-oU-7zP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ytK-a4-MvF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="3" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Phr-VM-JGC">
