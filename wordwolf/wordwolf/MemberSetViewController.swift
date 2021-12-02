@@ -22,10 +22,10 @@ class MemberSetViewController: UIViewController{
         let memberNum = textFields.count
         for i in 0...memberNum-1{
           memberNames.append(textFields[i].text!)
-          textFields[i].text = ""
         }
-        print(memberNames)
-        performSegue(withIdentifier: "memAfter", sender: memberNames)
+        print("a", memberNames)
+        performSegue(withIdentifier: "toRoleSetting", sender: (memberNames, tappedBtnTag))
+        memberNames = []
     }
     
     @IBAction func tapBackButton(_ sender: Any) {
@@ -82,10 +82,12 @@ class MemberSetViewController: UIViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "memAfter") {
+        if (segue.identifier == "toRoleSetting") {
+            let data: (nextMemArray: [String], nextBtnTag: Int) = (sender as? ([String], Int))!
             if let nextVC = segue.destination as? RolesViewController{
-                print(memberNames)
-                nextVC.memArray = sender as! [String?]
+                print("b", memberNames)
+                nextVC.memArray = data.nextMemArray
+                nextVC.tappedBtnTag = data.nextBtnTag
             }
         }
     }
