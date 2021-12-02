@@ -24,7 +24,8 @@ class MemberSetViewController: UIViewController{
           memberNames.append(textFields[i].text!)
           textFields[i].text = ""
         }
-        print(memberNames.count)
+        print(memberNames)
+        performSegue(withIdentifier: "memAfter", sender: memberNames)
     }
     
     @IBAction func tapBackButton(_ sender: Any) {
@@ -76,6 +77,15 @@ class MemberSetViewController: UIViewController{
             if let v = v as? UITextField, v.tag >= num{
                 // そのオブジェクトを親のviewから取り除く
                 v.removeFromSuperview()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "memAfter") {
+            if let nextVC = segue.destination as? RolesViewController{
+                print(memberNames)
+                nextVC.memArray = sender as! [String?]
             }
         }
     }
