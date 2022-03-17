@@ -31,9 +31,10 @@ class MemberSetViewController: UIViewController{
     @IBAction func tapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func changeStepperValue(sender: UIStepper) {
         let textFieldNum = textFields.count
-        testLabel.text = "\(String(format: "%.0f", sender.value))"//人数を変えた時に少数にならないようにformat設定
+        testLabel.text = String(format: "%.0f", sender.value) //人数を変えた時に少数にならないようにformat設定
         
         if Int(sender.value) < textFieldNum{
             textFieldRemove(num: Int(sender.value), tNum: textFieldNum)

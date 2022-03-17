@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A723975427E24B4000BBDD40 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A723975327E24B4000BBDD40 /* PersonalViewController.swift */; };
 		A778037226EE226600976934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778037126EE226600976934 /* AppDelegate.swift */; };
 		A778037426EE226600976934 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778037326EE226600976934 /* SceneDelegate.swift */; };
 		A778037626EE226600976934 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778037526EE226600976934 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		256CEF6EBE5D7F0C8771C5EA /* Pods-wordwolf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordwolf.debug.xcconfig"; path = "Target Support Files/Pods-wordwolf/Pods-wordwolf.debug.xcconfig"; sourceTree = "<group>"; };
 		26BC865A93467F52E7F19A61 /* Pods-wordwolf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordwolf.release.xcconfig"; path = "Target Support Files/Pods-wordwolf/Pods-wordwolf.release.xcconfig"; sourceTree = "<group>"; };
 		7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordwolf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A723975327E24B4000BBDD40 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		A778036E26EE226600976934 /* wordwolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordwolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A778037126EE226600976934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A778037326EE226600976934 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				A778038526EE308400976934 /* SellectViewController.swift */,
 				A778038726EE357900976934 /* MemberSetViewController.swift */,
 				A7BF345627451A790059E027 /* RolesViewController.swift */,
+				A723975327E24B4000BBDD40 /* PersonalViewController.swift */,
 			);
 			path = wordwolf;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				A778038826EE357900976934 /* MemberSetViewController.swift in Sources */,
 				A778037626EE226600976934 /* ViewController.swift in Sources */,
+				A723975427E24B4000BBDD40 /* PersonalViewController.swift in Sources */,
 				A7AF14262715E85700F40F4F /* RuleViewController.swift in Sources */,
 				A778038626EE308400976934 /* SellectViewController.swift in Sources */,
 				A7BF345727451A790059E027 /* RolesViewController.swift in Sources */,
