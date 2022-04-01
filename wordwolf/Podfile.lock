@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-PODFILE CHECKSUM: feeec1f2efe68bf7c255be109827cdbb1a78152b
-=======
+
 PODS:
   - Realm (10.25.0):
     - Realm/Headers (= 10.25.0)
@@ -21,6 +19,5 @@ SPEC CHECKSUMS:
   RealmSwift: c2a635212400923edd3f828b8a37d55d3eb31863
 
 PODFILE CHECKSUM: 4d26c5e32c3b5a6c6cc28d19d6a6d8d77099c7ba
->>>>>>> 789c29e0628070cc877444dc5df3c6bc90ce3525
 
 COCOAPODS: 1.11.2
