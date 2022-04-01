@@ -2,22 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<<<<<<< HEAD:wordwolf/wordwolf.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
-	<key>PreviewsEnabled</key>
-	<false/>
-=======
 	<key>SchemeUserState</key>
 	<dict>
 		<key>Pods-wordwolf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict/>
->>>>>>> 5c1ab9195de8948b904c5fa809e764e06afbd03e:wordwolf/Pods/Pods.xcodeproj/xcuserdata/moyu.xcuserdatad/xcschemes/xcschememanagement.plist
 </dict>
 </plist>

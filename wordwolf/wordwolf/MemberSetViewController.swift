@@ -60,7 +60,7 @@ class MemberSetViewController: UIViewController{
         // 入力された数だけループします。
         for i in tNum...num-1{
             let oneTextField = UITextField(frame: CGRect(x: 60,y: 210+i*45,width: Int(UIScreen.main.bounds.size.width)-120, height: 40))
-            oneTextField.backgroundColor = UIColor.red // テキストフィールドの色
+            oneTextField.backgroundColor = UIColor.white // テキストフィールドの色
             oneTextField.setUnderLine()
             oneTextField.tag = i
             textFields.append(oneTextField)
