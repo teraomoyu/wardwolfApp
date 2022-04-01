@@ -14,5 +14,6 @@ class PersonalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(memArray)
     }
 }

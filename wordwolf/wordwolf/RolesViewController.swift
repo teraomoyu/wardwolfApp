@@ -17,7 +17,6 @@ class RolesViewController: UIViewController {
     var clewNum: Int = 1
     
     //ステッパー
-    @IBOutlet weak var clewStepper: UIStepper!
     @IBOutlet weak var wolfStepper: UIStepper!
     @IBOutlet weak var foxStepper: UIStepper!
     @IBOutlet weak var timeStepper: UIStepper!
@@ -50,14 +49,12 @@ class RolesViewController: UIViewController {
             foxStepper.value = Double(foxNum!)
         }
         clewLabel.text = "\(clewNum)"
-        clewStepper.value = Double(clewNum)
         wolfLabel.text = "\(wolfNum)"
         wolfStepper.value = Double(wolfNum)
         changeMax(clew: clewNum, wolf: wolfNum, fox: foxNum)
         //タイマーの時間変えられるようにする
-        timeLabel.text = "3分"
+        timeLabel.text = "\(Int(timeStepper.value))分"
     }
-    
     
     @IBAction func changeWolfStepper(_ sender: UIStepper) {
         print(sender.value)
@@ -101,13 +98,16 @@ class RolesViewController: UIViewController {
     }
     
     @IBAction func changeTimeStepper(_ sender: UIStepper) {
-        timeLabel.text = String(format: "%.0f", sender.value)
+        print(sender.value)
+        timeLabel.text = "\(Int(sender.value))分"
+        print(timeLabel.text!)
     }
     
-    @IBAction func tapEnterBtn(_ sender: Any) {
+    @IBAction func tapEnterButton(_ sender: Any) {
         performSegue(withIdentifier: "toPersonalPage", sender: (memArray, tappedBtnTag))
     }
-    @IBAction func tapBackBtn(_ sender: Any) {
+    
+    @IBAction func tapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
      }
     
