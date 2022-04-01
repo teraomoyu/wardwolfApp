@@ -18,8 +18,11 @@
 		A778038826EE357900976934 /* MemberSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778038726EE357900976934 /* MemberSetViewController.swift */; };
 		A797D92E27F4A04E00B6C188 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A797D92D27F4A04E00B6C188 /* model.swift */; };
 		A7AF14262715E85700F40F4F /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF14252715E85700F40F4F /* RuleViewController.swift */; };
-        A7BF345727451A790059E027 /* RolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BF345627451A790059E027 /* RolesViewController.swift */; };
-        E2E3B481ECD46C7F26396665 /* Pods_wordwolf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */; };
+		A7BF345727451A790059E027 /* RolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BF345627451A790059E027 /* RolesViewController.swift */; };
+<<<<<<< HEAD
+=======
+		E2E3B481ECD46C7F26396665 /* Pods_wordwolf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */; };
+>>>>>>> 789c29e0628070cc877444dc5df3c6bc90ce3525
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,7 +107,10 @@
 				A778038726EE357900976934 /* MemberSetViewController.swift */,
 				A7BF345627451A790059E027 /* RolesViewController.swift */,
 				A723975327E24B4000BBDD40 /* PersonalViewController.swift */,
+<<<<<<< HEAD
+=======
 				A797D92D27F4A04E00B6C188 /* model.swift */,
+>>>>>>> 789c29e0628070cc877444dc5df3c6bc90ce3525
 			);
 			path = wordwolf;
 			sourceTree = "<group>";
@@ -177,6 +183,8 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+<<<<<<< HEAD
+=======
 		17DD41B4FB984C7EEC6286F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,6 +202,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wordwolf/Pods-wordwolf-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+>>>>>>> 789c29e0628070cc877444dc5df3c6bc90ce3525
 		AFAFFD86405C8E0CBDB9B658 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
