@@ -9,7 +9,9 @@ import Foundation
 import RealmSwift
 
 class RealmWords: Object {
-    dynamic var clew  = "";
-    dynamic var wolf = "";
-    dynamic var fox = "";
+    @objc dynamic var clew  = "";
+    @objc dynamic var wolf = "";
+    @objc dynamic var fox = "";
 }
+
+
