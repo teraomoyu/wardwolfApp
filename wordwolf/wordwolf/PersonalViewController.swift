@@ -28,33 +28,35 @@ class PersonalViewController: UIViewController {
         nameLabel.text = memArray[memInt]
         print(nameLabel.text!)
         
+        //Realmのテスト
+        let test_words = RealmWords()
+        test_words.clew = "ワンピース"
+        test_words.wolf = "ドレス"
+        test_words.fox = "ピザ"
+
+        try! realm.write {
+            realm.add(test_words)
+        }
+
+        let results = realm.objects(RealmWords.self)
+        if memInt == 0{
+            print(results)
+            let randomWords = results.randomElement()!
+            print(randomWords)
+        }
+        
+        
 //      ワードの表示
         wordLabel.text = "test"
         print(wordLabel.text!)
-//        if memInt == memArray.count - 1{
-//            enterButton.isHidden = true
-//        }else{
-//            enterButton.isHidden = false
-//        }
-//
-        //Realmのテスト
-//        let test_words = RealmWords()
-//        test_words.clew = "エビ"
-//        test_words.wolf = "カニ"
-//        test_words.fox = "ゴキブリ"
-//
-//        
-//        try! realm.write {
-//            realm.add(test_words)
-//        }
 
-//        let results = realm.objects(RealmWords.self)
-//        print(results)
+       
+       
     }
     
     @IBAction func tapNextButton(_ sender: Any) {
         memInt = memInt + 1  // 次の人の名前インデックス更新
-        viewDidLoad()
+        viewDidLoad()  //画面更新
         if (memInt == memArray.count - 1){
             nextButton.isHidden = true
             enterButton.isHidden = false
