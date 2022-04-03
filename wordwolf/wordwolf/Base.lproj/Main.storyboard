@@ -339,7 +339,7 @@
                                     <action selector="tapBackButton:" destination="E7Y-nE-ETx" eventType="touchUpInside" id="pzX-qa-HfV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-fh-vz4">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-fh-vz4">
                                 <rect key="frame" x="352" y="27" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="決定"/>
@@ -367,7 +367,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="enterButton" destination="Pfz-fh-vz4" id="hJV-ed-f5z"/>
                         <outlet property="nameLabel" destination="XEc-TZ-edu" id="g9N-WM-YGv"/>
+                        <outlet property="nextButton" destination="wYs-hi-3HO" id="L4s-VP-EJm"/>
                         <outlet property="view" destination="IEb-6R-snc" id="dqr-fp-llb"/>
                         <outlet property="wordLabel" destination="HVt-Vf-Dpw" id="WWK-Xe-h26"/>
                         <segue destination="bfH-2D-JZx" kind="presentation" identifier="nextPerson" id="WeR-Ax-WOz"/>

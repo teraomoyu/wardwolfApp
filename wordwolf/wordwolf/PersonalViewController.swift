@@ -16,6 +16,8 @@ class PersonalViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var enterButton: UIButton!
     let realm = try! Realm()
 
     override func viewDidLoad() {
@@ -25,7 +27,17 @@ class PersonalViewController: UIViewController {
 //      メンバー名の表示
         nameLabel.text = memArray[memInt]
         print(nameLabel.text!)
-        //テスト
+        
+//      ワードの表示
+        wordLabel.text = "test"
+        print(wordLabel.text!)
+//        if memInt == memArray.count - 1{
+//            enterButton.isHidden = true
+//        }else{
+//            enterButton.isHidden = false
+//        }
+//
+        //Realmのテスト
 //        let test_words = RealmWords()
 //        test_words.clew = "エビ"
 //        test_words.wolf = "カニ"
@@ -41,7 +53,12 @@ class PersonalViewController: UIViewController {
     }
     
     @IBAction func tapNextButton(_ sender: Any) {
-        
+        memInt = memInt + 1  // 次の人の名前インデックス更新
+        viewDidLoad()
+        if (memInt == memArray.count - 1){
+            nextButton.isHidden = true
+            enterButton.isHidden = false
+        }
         
     }
     @IBAction func tapBackButton(_ sender: Any) {
