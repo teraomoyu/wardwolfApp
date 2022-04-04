@@ -52,15 +52,12 @@ class PersonalViewController: UIViewController {
             words = pickWords()
             print(words)
             
-            randomRole(Num: memArray.count, wolfNum: wolfNum!, foxNum: foxNum!)
+            randomRole()
         }
         
 //      ワードの表示
-//        wordLabel.text = word
-//        print(wordLabel.text!)
-
-       
-       
+        setWord()
+        print(wordLabel.text!)
     }
     
     @IBAction func tapNextButton(_ sender: Any) {
@@ -70,11 +67,12 @@ class PersonalViewController: UIViewController {
             nextButton.isHidden = true
             enterButton.isHidden = false
         }
-        
     }
+    
     @IBAction func tapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func tapEnterButton(_ sender: Any) {
         performSegue(withIdentifier:  "nextPerson", sender: (memArray, tappedBtnTag, memInt+1))
     }
@@ -85,27 +83,33 @@ class PersonalViewController: UIViewController {
         return ["clew": randomWords.clew, "wolf": randomWords.wolf, "fox": randomWords.fox]
     }
     
-    func randomRole(Num: Int, wolfNum: Int, foxNum: Int){
+    func randomRole(){
 //      クルーの配列作る
-        for i in 0..<Num{
+        for i in 0..<memArray.count{
             clewIdx.append(i)
         }
 //      狼配列
-        for _ in 0..<wolfNum{
+        for _ in 0..<wolfNum!{
             let j = Int.random(in: 0..<clewIdx.count)
             wolfIdx.append(clewIdx[j])
             clewIdx.remove(at: j)
         }
 //      狐配列
-        for _ in 0..<foxNum{
+        for _ in 0..<foxNum!{
             let j = Int.random(in: 0..<clewIdx.count)
             foxIdx.append(clewIdx[j])
             clewIdx.remove(at: j)
         }
-        print(clewIdx)
-        print(wolfIdx)
-        print(foxIdx)
-        
+    }
+    
+    func setWord(){
+        if clewIdx.contains(memInt){
+            wordLabel.text = "あなたのワードは" + words["clew"]! + "です。"
+        }else if wolfIdx.contains(memInt){
+            wordLabel.text = "あなたのワードは" + words["wolf"]! + "です。"
+        }else if foxIdx.contains(memInt){
+            wordLabel.text = "あなたのワードは" + words["fox"]! + "です。"
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
