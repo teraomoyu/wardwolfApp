@@ -104,7 +104,7 @@ class RolesViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier: "toPersonalPage", sender: (memArray, tappedBtnTag))
+        performSegue(withIdentifier: "toPersonalPage", sender: (memArray, tappedBtnTag, clewNum, wolfNum, foxNum))
     }
     
     @IBAction func tapBackButton(_ sender: Any) {
@@ -114,10 +114,13 @@ class RolesViewController: UIViewController {
     //画面遷移の設定
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toPersonalPage"){
-            let data: (nextMemArray: [String], nextBtnTag: Int) = (sender as? ([String], Int))!
+            let data: (nextMemArray: [String], nextBtnTag: Int, nextClewNum: Int, nextWolfNum: Int, nextFoxNum: Int?) = (sender as? ([String], Int, Int, Int, Int?))!
             if let nextVC = segue.destination as? PersonalViewController{
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag
+                nextVC.clewNum = data.nextClewNum
+                nextVC.wolfNum = data.nextWolfNum
+                nextVC.foxNum = data.nextFoxNum
             }
         }
     }

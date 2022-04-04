@@ -12,13 +12,22 @@ class PersonalViewController: UIViewController {
     
     var memArray = [String?]()
     var tappedBtnTag: Int?
+    var clewNum: Int?
+    var wolfNum: Int?
+    var foxNum: Int?
     var memInt: Int = 0
+    var words: [String: String] = [:]
+    var clewIdx = [Int?]()
+    var wolfIdx = [Int?]()
+    var foxIdx = [Int?]()
+    
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var enterButton: UIButton!
     let realm = try! Realm()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,26 +38,26 @@ class PersonalViewController: UIViewController {
         print(nameLabel.text!)
         
         //Realmのテスト
-        let test_words = RealmWords()
-        test_words.clew = "ワンピース"
-        test_words.wolf = "ドレス"
-        test_words.fox = "ピザ"
+//        let test_words = RealmWords()
+//        test_words.clew = "ポニーテール"
+//        test_words.wolf = "ツインテール"
+//        test_words.fox = "わき毛"
+//
+//        try! realm.write {
+//            realm.add(test_words)
+//        }
 
-        try! realm.write {
-            realm.add(test_words)
-        }
-
-        let results = realm.objects(RealmWords.self)
+//      ワード選び
         if memInt == 0{
-            print(results)
-            let randomWords = results.randomElement()!
-            print(randomWords)
+            words = pickWords()
+            print(words)
+            
+            randomRole(Num: memArray.count, wolfNum: wolfNum!, foxNum: foxNum!)
         }
-        
         
 //      ワードの表示
-        wordLabel.text = "test"
-        print(wordLabel.text!)
+//        wordLabel.text = word
+//        print(wordLabel.text!)
 
        
        
@@ -68,6 +77,35 @@ class PersonalViewController: UIViewController {
     }
     @IBAction func tapEnterButton(_ sender: Any) {
         performSegue(withIdentifier:  "nextPerson", sender: (memArray, tappedBtnTag, memInt+1))
+    }
+    
+    func pickWords() -> [String: String]{
+        let results = realm.objects(RealmWords.self)
+        let randomWords = results.randomElement()!
+        return ["clew": randomWords.clew, "wolf": randomWords.wolf, "fox": randomWords.fox]
+    }
+    
+    func randomRole(Num: Int, wolfNum: Int, foxNum: Int){
+//      クルーの配列作る
+        for i in 0..<Num{
+            clewIdx.append(i)
+        }
+//      狼配列
+        for _ in 0..<wolfNum{
+            let j = Int.random(in: 0..<clewIdx.count)
+            wolfIdx.append(clewIdx[j])
+            clewIdx.remove(at: j)
+        }
+//      狐配列
+        for _ in 0..<foxNum{
+            let j = Int.random(in: 0..<clewIdx.count)
+            foxIdx.append(clewIdx[j])
+            clewIdx.remove(at: j)
+        }
+        print(clewIdx)
+        print(wolfIdx)
+        print(foxIdx)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
