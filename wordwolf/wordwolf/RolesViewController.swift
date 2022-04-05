@@ -91,6 +91,8 @@ class RolesViewController: UIViewController {
             wolfStepper.minimumValue = Double(fox!)
             if (clew - fox! == 1){
                 foxStepper.maximumValue = min(Double(wolf), Double(clew - 1))
+            }else if(clew - wolf == 0){
+                foxStepper.maximumValue = Double(fox!)
             }else{
                 foxStepper.maximumValue = min(Double(wolf), Double(clew))
             }
@@ -104,7 +106,8 @@ class RolesViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier: "toPersonalPage", sender: (memArray, tappedBtnTag, clewNum, wolfNum, foxNum))
+        performSegue(withIdentifier: "toPersonalPage",
+                     sender: (memArray, tappedBtnTag, clewNum, wolfNum, foxNum))
     }
     
     @IBAction func tapBackButton(_ sender: Any) {
@@ -114,7 +117,11 @@ class RolesViewController: UIViewController {
     //画面遷移の設定
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toPersonalPage"){
-            let data: (nextMemArray: [String], nextBtnTag: Int, nextClewNum: Int, nextWolfNum: Int, nextFoxNum: Int?) = (sender as? ([String], Int, Int, Int, Int?))!
+            let data: (nextMemArray: [String],
+                       nextBtnTag: Int,
+                       nextClewNum: Int,
+                       nextWolfNum: Int,
+                       nextFoxNum: Int?) = (sender as? ([String], Int, Int, Int, Int?))!
             if let nextVC = segue.destination as? PersonalViewController{
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag

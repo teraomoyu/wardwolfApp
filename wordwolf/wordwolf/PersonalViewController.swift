@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftUI
 
 class PersonalViewController: UIViewController {
     
@@ -28,24 +29,20 @@ class PersonalViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     let realm = try! Realm()
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        popAlert()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(memArray)
         
+        popAlert()
+        
 //      メンバー名の表示
         nameLabel.text = memArray[memInt]
         print(nameLabel.text!)
-        
-        //Realmのテスト
-//        let test_words = RealmWords()
-//        test_words.clew = "ポニーテール"
-//        test_words.wolf = "ツインテール"
-//        test_words.fox = "わき毛"
-//
-//        try! realm.write {
-//            realm.add(test_words)
-//        }
 
 //      ワード選び
         if memInt == 0{
@@ -58,6 +55,16 @@ class PersonalViewController: UIViewController {
 //      ワードの表示
         setWord()
         print(wordLabel.text!)
+        
+        //Realmのテスト
+//        let test_words = RealmWords()
+//        test_words.clew = "ポニーテール"
+//        test_words.wolf = "ツインテール"
+//        test_words.fox = "わき毛"
+//
+//        try! realm.write {
+//            realm.add(test_words)
+//        }
     }
     
     @IBAction func tapNextButton(_ sender: Any) {
@@ -95,10 +102,12 @@ class PersonalViewController: UIViewController {
             clewIdx.remove(at: j)
         }
 //      狐配列
-        for _ in 0..<foxNum!{
-            let j = Int.random(in: 0..<clewIdx.count)
-            foxIdx.append(clewIdx[j])
-            clewIdx.remove(at: j)
+        if foxNum != nil{
+            for _ in 0..<foxNum!{
+                let j = Int.random(in: 0..<clewIdx.count)
+                foxIdx.append(clewIdx[j])
+                clewIdx.remove(at: j)
+            }
         }
     }
     
@@ -110,6 +119,27 @@ class PersonalViewController: UIViewController {
         }else if foxIdx.contains(memInt){
             wordLabel.text = "あなたのワードは" + words["fox"]! + "です。"
         }
+    }
+    
+    func popAlert(){
+        wordLabel.isHidden = true
+        
+    //      ポップアップ
+        let configAlert = UIAlertController(
+            title: "確認",
+            message: "あなたは" + memArray[memInt]! + "さんですか？",
+            preferredStyle: .alert
+        )
+        configAlert.addAction(
+            UIAlertAction(
+                title: "はい",
+                style: .default
+            ){
+                action in
+                self.wordLabel.isHidden = false
+            }
+        )
+        present(configAlert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
