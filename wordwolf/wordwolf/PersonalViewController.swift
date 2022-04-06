@@ -16,6 +16,7 @@ class PersonalViewController: UIViewController {
     var clewNum: Int?
     var wolfNum: Int?
     var foxNum: Int?
+    var time: Int = 0
     var memInt: Int = 0
     var words: [String: String] = [:]
     var clewIdx = [Int?]()
@@ -36,7 +37,6 @@ class PersonalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(memArray)
         
         popAlert()
         
@@ -81,7 +81,7 @@ class PersonalViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier:  "nextPerson", sender: (memArray, tappedBtnTag, memInt+1))
+        performSegue(withIdentifier:  "toDiscussion", sender: (memArray, tappedBtnTag, memInt, time))
     }
     
     func pickWords() -> [String: String]{
@@ -143,12 +143,17 @@ class PersonalViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "nextPerson"){
-            let data: (nextMemArray: [String?], nextBtnTag: Int, nextMemInt: Int) = (sender as? ([String], Int, Int))!
-            if let nextVC = segue.destination as? PersonalViewController{
+        if (segue.identifier == "toDiscussion"){
+            let data: (nextMemArray: [String?],
+                       nextBtnTag: Int,
+                       nextMemInt: Int,
+                       nextTime: Int) = (sender as? ([String], Int, Int, Int))!
+//          ちゃんとnextVCを変更する！
+            if let nextVC = segue.destination as? DiscussionViewController{
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag
                 nextVC.memInt = data.nextMemInt
+                nextVC.time = data.nextTime
             }
         }
     }

@@ -365,27 +365,67 @@
                         <outlet property="nextButton" destination="wYs-hi-3HO" id="L4s-VP-EJm"/>
                         <outlet property="view" destination="IEb-6R-snc" id="dqr-fp-llb"/>
                         <outlet property="wordLabel" destination="HVt-Vf-Dpw" id="WWK-Xe-h26"/>
-                        <segue destination="bfH-2D-JZx" kind="presentation" identifier="nextPerson" id="WeR-Ax-WOz"/>
+                        <segue destination="bfH-2D-JZx" kind="presentation" identifier="toDiscussion" id="WeR-Ax-WOz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inN-Jk-pvj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2830.434782608696" y="110.49107142857143"/>
         </scene>
-        <!--View Controller-->
+        <!--Discussion View Controller-->
         <scene sceneID="YtI-8P-QDq">
             <objects>
-                <viewController id="bfH-2D-JZx" sceneMemberID="viewController">
+                <viewController id="bfH-2D-JZx" customClass="DiscussionViewController" customModule="wordwolf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GI9-Uq-qPd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LQ-GC-gnF">
+                                <rect key="frame" x="0.0" y="411" width="414" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="F8V-y6-cLp">
+                                <rect key="frame" x="160" y="466" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="議論時間" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efq-Zi-NBq">
+                                <rect key="frame" x="0.0" y="114" width="414" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGq-ic-aYR">
+                                <rect key="frame" x="31" y="20" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="tapBackButton:" destination="bfH-2D-JZx" eventType="touchUpInside" id="iTy-MK-cJY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw0-NZ-gt0">
+                                <rect key="frame" x="363" y="20" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="決定"/>
+                                <connections>
+                                    <action selector="tapEnterButton:" destination="bfH-2D-JZx" eventType="touchUpInside" id="6Nm-ea-M2s"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="t0A-FV-mib"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="5LQ-GC-gnF" id="M4i-83-tVP"/>
+                        <outlet property="timeStepper" destination="F8V-y6-cLp" id="9Il-6p-UYc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9w-Mo-ps2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3639" y="129"/>
+            <point key="canvasLocation" x="3637.68115942029" y="128.57142857142856"/>
         </scene>
         <!--Rule View Controller-->
         <scene sceneID="Abd-d4-XS6">

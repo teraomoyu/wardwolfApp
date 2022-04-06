@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A71FFFF327FDA0140052F331 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFFF227FDA0140052F331 /* DiscussionViewController.swift */; };
 		A723975427E24B4000BBDD40 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A723975327E24B4000BBDD40 /* PersonalViewController.swift */; };
 		A778037226EE226600976934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778037126EE226600976934 /* AppDelegate.swift */; };
 		A778037426EE226600976934 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778037326EE226600976934 /* SceneDelegate.swift */; };
@@ -18,14 +19,15 @@
 		A778038826EE357900976934 /* MemberSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A778038726EE357900976934 /* MemberSetViewController.swift */; };
 		A797D92E27F4A04E00B6C188 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A797D92D27F4A04E00B6C188 /* model.swift */; };
 		A7AF14262715E85700F40F4F /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF14252715E85700F40F4F /* RuleViewController.swift */; };
-        A7BF345727451A790059E027 /* RolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BF345627451A790059E027 /* RolesViewController.swift */; };
-        E2E3B481ECD46C7F26396665 /* Pods_wordwolf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */; };
+		A7BF345727451A790059E027 /* RolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BF345627451A790059E027 /* RolesViewController.swift */; };
+		E2E3B481ECD46C7F26396665 /* Pods_wordwolf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		256CEF6EBE5D7F0C8771C5EA /* Pods-wordwolf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordwolf.debug.xcconfig"; path = "Target Support Files/Pods-wordwolf/Pods-wordwolf.debug.xcconfig"; sourceTree = "<group>"; };
 		26BC865A93467F52E7F19A61 /* Pods-wordwolf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordwolf.release.xcconfig"; path = "Target Support Files/Pods-wordwolf/Pods-wordwolf.release.xcconfig"; sourceTree = "<group>"; };
 		7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordwolf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A71FFFF227FDA0140052F331 /* DiscussionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
 		A723975327E24B4000BBDD40 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		A778036E26EE226600976934 /* wordwolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordwolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A778037126EE226600976934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				A7BF345627451A790059E027 /* RolesViewController.swift */,
 				A723975327E24B4000BBDD40 /* PersonalViewController.swift */,
 				A797D92D27F4A04E00B6C188 /* model.swift */,
+				A71FFFF227FDA0140052F331 /* DiscussionViewController.swift */,
 			);
 			path = wordwolf;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				A778037626EE226600976934 /* ViewController.swift in Sources */,
 				A723975427E24B4000BBDD40 /* PersonalViewController.swift in Sources */,
 				A7AF14262715E85700F40F4F /* RuleViewController.swift in Sources */,
+				A71FFFF327FDA0140052F331 /* DiscussionViewController.swift in Sources */,
 				A778038626EE308400976934 /* SellectViewController.swift in Sources */,
 				A7BF345727451A790059E027 /* RolesViewController.swift in Sources */,
 				A778037226EE226600976934 /* AppDelegate.swift in Sources */,

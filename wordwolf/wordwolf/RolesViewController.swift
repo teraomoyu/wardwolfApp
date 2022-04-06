@@ -15,6 +15,7 @@ class RolesViewController: UIViewController {
     var wolfNum: Int = 1
     var foxNum: Int?
     var clewNum: Int = 1
+    var time: Int = 1
     
     //ステッパー
     @IBOutlet weak var wolfStepper: UIStepper!
@@ -100,14 +101,13 @@ class RolesViewController: UIViewController {
     }
     
     @IBAction func changeTimeStepper(_ sender: UIStepper) {
-        print(sender.value)
-        timeLabel.text = "\(Int(sender.value))分"
-        print(timeLabel.text!)
+        time = Int(sender.value)
+        timeLabel.text = "\(time)分"
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
         performSegue(withIdentifier: "toPersonalPage",
-                     sender: (memArray, tappedBtnTag, clewNum, wolfNum, foxNum))
+                     sender: (memArray, tappedBtnTag, clewNum, wolfNum, foxNum, time))
     }
     
     @IBAction func tapBackButton(_ sender: Any) {
@@ -121,13 +121,17 @@ class RolesViewController: UIViewController {
                        nextBtnTag: Int,
                        nextClewNum: Int,
                        nextWolfNum: Int,
-                       nextFoxNum: Int?) = (sender as? ([String], Int, Int, Int, Int?))!
+                       nextFoxNum: Int?,
+                       nextTime: Int) = (
+                        sender as? ([String], Int, Int, Int, Int?, Int)
+                       )!
             if let nextVC = segue.destination as? PersonalViewController{
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag
                 nextVC.clewNum = data.nextClewNum
                 nextVC.wolfNum = data.nextWolfNum
                 nextVC.foxNum = data.nextFoxNum
+                nextVC.time = data.nextTime
             }
         }
     }
