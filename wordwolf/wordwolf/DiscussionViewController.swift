@@ -32,9 +32,10 @@ class DiscussionViewController: UIViewController {
 //  タイマーカウント
     @objc func timerCounter() {
         guard let startTime = self.startTime else { return }
-        let time = Date.timeIntervalSinceReferenceDate - startTime
-        let min = Int(time / 60)
-        let sec = Int(time) % 60
+//      timeIntervalSinceReferenceDateは2001/01/01からの時間
+        let timeCount = Double(time) * 60 - (Date.timeIntervalSinceReferenceDate - startTime)
+        let min = Int(timeCount / 60)
+        let sec = Int(timeCount) % 60
         self.timeLabel.text = String(format: "%02d:%02d", min, sec)
     }
     
