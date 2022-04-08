@@ -23,7 +23,6 @@ class MemberSetViewController: UIViewController{
         for i in 0...memberNum-1{
           memberNames.append(textFields[i].text!)
         }
-        print("a", memberNames)
         performSegue(withIdentifier: "toRoleSetting", sender: (memberNames, tappedBtnTag))
         memberNames = []
     }
@@ -49,7 +48,6 @@ class MemberSetViewController: UIViewController{
         let memberNum = tappedBtnTag
         testLabel.text = "\(memberNum!)"//!をつけたらOptionalが付かなくなった
         stepper.minimumValue = Double(Int(memberNum!)) //狐か狼かによって最小値を変える
-        print("### tappedBtnTag:", tappedBtnTag as Any)
         setNameTextField(num: tappedBtnTag!, tNum: 0)
 
         // Do any additional setup after loading the view.
@@ -86,7 +84,6 @@ class MemberSetViewController: UIViewController{
         if (segue.identifier == "toRoleSetting") {
             let data: (nextMemArray: [String], nextBtnTag: Int) = (sender as? ([String], Int))!
             if let nextVC = segue.destination as? RolesViewController{
-                print("b", memberNames)
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag
             }

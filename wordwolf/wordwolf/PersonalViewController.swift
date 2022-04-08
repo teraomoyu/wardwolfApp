@@ -42,19 +42,16 @@ class PersonalViewController: UIViewController {
         
 //      メンバー名の表示
         nameLabel.text = memArray[memInt]
-        print(nameLabel.text!)
 
 //      ワード選び
         if memInt == 0{
             words = pickWords()
-            print(words)
             
             randomRole()
         }
         
 //      ワードの表示
         setWord()
-        print(wordLabel.text!)
         
         //Realmのテスト
 //        let test_words = RealmWords()

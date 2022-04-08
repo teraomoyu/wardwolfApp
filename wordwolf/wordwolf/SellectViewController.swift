@@ -26,13 +26,11 @@ class SellectViewController: UIViewController {
     }
     @IBAction func tapWolfButton(_ sender: UIButton) {
         tagNumber = sender.tag
-        print(tagNumber)
         performSegue(withIdentifier: "toMemberSetting", sender: tagNumber)
     }
     
     @IBAction func tapFoxButton(_ sender: UIButton) {
         tagNumber = sender.tag
-        print(tagNumber)
         performSegue(withIdentifier: "toMemberSetting", sender: tagNumber)
         
     }

@@ -33,7 +33,6 @@ class RolesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(memArray.count)
         memNum = memArray.count
         
         if(tappedBtnTag == 3){
@@ -58,7 +57,6 @@ class RolesViewController: UIViewController {
     }
     
     @IBAction func changeWolfStepper(_ sender: UIStepper) {
-        print(sender.value)
         wolfNum = Int(sender.value)
         wolfLabel.text = "\(wolfNum)"
         consistMemNum(wolf: sender, fox: foxStepper)
@@ -66,7 +64,6 @@ class RolesViewController: UIViewController {
     }
     
     @IBAction func changeFoxStepper(_ sender: UIStepper) {
-        print(sender.value)
         foxNum = Int(sender.value)
         foxLabel.text = "\(foxNum!)"
         consistMemNum(wolf: wolfStepper, fox: sender)

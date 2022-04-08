@@ -15,6 +15,9 @@ class DiscussionViewController: UIViewController {
     var time: Int = 0
     var startTime: TimeInterval? = nil
     var timer = Timer()
+    var min: Int = 0
+    var sec: Int = 0
+    var stepperValue: Double = 0
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeStepper: UIStepper!
@@ -22,11 +25,18 @@ class DiscussionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //      時間表示
-        timeLabel.text = String(format: "%02d:00", time)
+        min = time
+        timeLabel.text = String(format: "%02d:%02d", min, sec)
+        stepperValue = Double(time)
+        timeStepper.value = Double(time)
     }
     
     
     @IBAction func changeTimeStepper(_ sender: UIStepper) {
+        time = Int(sender.value)
+        min = min + Int(sender.value - stepperValue)
+        timeLabel.text = String(format: "%02d:%02d", min, sec)
+        stepperValue = sender.value
     }
     
 //  タイマーカウント
@@ -34,8 +44,8 @@ class DiscussionViewController: UIViewController {
         guard let startTime = self.startTime else { return }
 //      timeIntervalSinceReferenceDateは2001/01/01からの時間
         let timeCount = Double(time) * 60 - (Date.timeIntervalSinceReferenceDate - startTime)
-        let min = Int(timeCount / 60)
-        let sec = Int(timeCount) % 60
+        min = Int(timeCount / 60)
+        sec = Int(timeCount) % 60
         self.timeLabel.text = String(format: "%02d:%02d", min, sec)
     }
     
