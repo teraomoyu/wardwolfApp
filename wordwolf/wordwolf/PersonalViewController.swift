@@ -84,6 +84,7 @@ class PersonalViewController: UIViewController {
     func pickWords() -> [String: String]{
         let results = realm.objects(RealmWords.self)
         let randomWords = results.randomElement()!
+        print(randomWords)
         return ["clew": randomWords.clew, "wolf": randomWords.wolf, "fox": randomWords.fox]
     }
     

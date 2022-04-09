@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class DiscussionViewController: UIViewController {
     
@@ -18,7 +19,8 @@ class DiscussionViewController: UIViewController {
     var min: Int = 0
     var sec: Int = 0
     var stepperValue: Double = 0
-    
+    var soundId:SystemSoundID = 0
+
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeStepper: UIStepper!
     @IBOutlet weak var startBtn: UIButton!
@@ -35,6 +37,17 @@ class DiscussionViewController: UIViewController {
     @IBAction func changeTimeStepper(_ sender: UIStepper) {
         time = Int(sender.value)
         min = min + Int(sender.value - stepperValue)
+        if min < 0{
+            min = 0
+            sec = 0
+//            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            if let soundUrl:NSURL? = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/alarm.caf") {
+
+                // SystemsoundIDを作成して再生実行
+                AudioServicesCreateSystemSoundID(soundUrl!, &soundId)
+                AudioServicesPlaySystemSound(soundId)
+            }
+        }
         timeLabel.text = String(format: "%02d:%02d", min, sec)
         stepperValue = sender.value
     }
@@ -44,8 +57,20 @@ class DiscussionViewController: UIViewController {
         guard let startTime = self.startTime else { return }
 //      timeIntervalSinceReferenceDateは2001/01/01からの時間
         let timeCount = Double(time) * 60 - (Date.timeIntervalSinceReferenceDate - startTime)
-        min = Int(timeCount / 60)
-        sec = Int(timeCount) % 60
+        if timeCount < 0{
+            min = 0
+            sec = 0
+//            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            if let soundUrl:NSURL? = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/alarm.caf") {
+
+                // SystemsoundIDを作成して再生実行
+                AudioServicesCreateSystemSoundID(soundUrl!, &soundId)
+                AudioServicesPlaySystemSound(soundId)
+            }
+        }else{
+            min = Int(timeCount / 60)
+            sec = Int(timeCount) % 60
+        }
         self.timeLabel.text = String(format: "%02d:%02d", min, sec)
     }
     
