@@ -39,6 +39,28 @@ class DiscussionViewController: UIViewController {
         min = 0
         sec = 0
         AudioServicesPlaySystemSound(soundId)
+        
+//      アラームのアラート作る
+        let alert = UIAlertController(
+            title: "時間です",
+            message: "時間になりました。答え合わせをしますか？",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "アラームを止める", style: .default
+        ){
+            action in
+            self.timer.invalidate()
+        })
+        
+        alert.addAction(UIAlertAction(
+            title: "答えを見る", style: .default
+        ){
+            action in
+            self.timer.invalidate()
+//            ここで画面遷移をする
+        })
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func changeTimeStepper(_ sender: UIStepper) {
@@ -62,7 +84,6 @@ class DiscussionViewController: UIViewController {
         }else{
             min = Int(timeCount / 60)
             sec = Int(timeCount) % 60
-            print(min, sec)
         }
         self.timeLabel.text = String(format: "%02d:%02d", min, sec)
     }
@@ -78,9 +99,6 @@ class DiscussionViewController: UIViewController {
     }
     
     @IBAction func tapStopBtn(_ sender: Any) {
-//        timeStepper.value = time
-//        stepperValue = time
-//        timeLabel.text = String(format: "%02d:%02d", min, sec)
         timer.invalidate()
         viewDidLoad()
     }
