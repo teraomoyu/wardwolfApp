@@ -78,7 +78,7 @@ class PersonalViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier:  "toDiscussion", sender: (memArray, tappedBtnTag, memInt, time))
+        performSegue(withIdentifier:  "toDiscussion", sender: (memArray, tappedBtnTag, memInt, time, clewIdx, wolfIdx, foxIdx))
     }
     
     func pickWords() -> [String: String]{
@@ -145,13 +145,21 @@ class PersonalViewController: UIViewController {
             let data: (nextMemArray: [String?],
                        nextBtnTag: Int,
                        nextMemInt: Int,
-                       nextTime: Int) = (sender as? ([String], Int, Int, Int))!
+                       nextTime: Int,
+                       nextClewIdx: [Int],
+                       nextWolfIdx: [Int],
+                       nextFoxIdx: [Int?]) = (
+                        sender as? ([String], Int, Int, Int, [Int], [Int], [Int?])
+                       )!
 //          ちゃんとnextVCを変更する！
             if let nextVC = segue.destination as? DiscussionViewController{
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag
                 nextVC.memInt = data.nextMemInt
                 nextVC.time = data.nextTime
+                nextVC.clewIdx = data.nextClewIdx
+                nextVC.wolfIdx = data.nextWolfIdx
+                nextVC.foxIdx = data.nextFoxIdx
             }
         }
     }

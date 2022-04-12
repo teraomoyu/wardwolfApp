@@ -20,6 +20,7 @@
 		A797D92E27F4A04E00B6C188 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A797D92D27F4A04E00B6C188 /* model.swift */; };
 		A7AF14262715E85700F40F4F /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF14252715E85700F40F4F /* RuleViewController.swift */; };
 		A7BF345727451A790059E027 /* RolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BF345627451A790059E027 /* RolesViewController.swift */; };
+		A7D550F52805BEC100C514AF /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D550F42805BEC000C514AF /* AnswerViewController.swift */; };
 		A7FDBEF52801BCF000000650 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FDBEF42801BCF000000650 /* AudioToolbox.framework */; };
 		E2E3B481ECD46C7F26396665 /* Pods_wordwolf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF4422A087CB94E030E5C01 /* Pods_wordwolf.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		A797D92D27F4A04E00B6C188 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		A7AF14252715E85700F40F4F /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		A7BF345627451A790059E027 /* RolesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesViewController.swift; sourceTree = "<group>"; };
+		A7D550F42805BEC000C514AF /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		A7FDBEF42801BCF000000650 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				A723975327E24B4000BBDD40 /* PersonalViewController.swift */,
 				A797D92D27F4A04E00B6C188 /* model.swift */,
 				A71FFFF227FDA0140052F331 /* DiscussionViewController.swift */,
+				A7D550F42805BEC000C514AF /* AnswerViewController.swift */,
 			);
 			path = wordwolf;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				A778037226EE226600976934 /* AppDelegate.swift in Sources */,
 				A797D92E27F4A04E00B6C188 /* model.swift in Sources */,
 				A778037426EE226600976934 /* SceneDelegate.swift in Sources */,
+				A7D550F52805BEC100C514AF /* AnswerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

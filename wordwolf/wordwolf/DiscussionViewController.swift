@@ -20,6 +20,9 @@ class DiscussionViewController: UIViewController {
     var sec: Int = 0
     var stepperValue: Double = 0
     var soundId:SystemSoundID = 1005
+    var clewIdx = [Int?]()
+    var wolfIdx = [Int?]()
+    var foxIdx = [Int?]()
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeStepper: UIStepper!
@@ -58,7 +61,8 @@ class DiscussionViewController: UIViewController {
         ){
             action in
             self.timer.invalidate()
-//            ここで画面遷移をする
+//          ここで画面遷移をする
+            self.performSegue(withIdentifier: "toAnswer", sender: (self.memArray, self.tappedBtnTag, self.clewIdx, self.wolfIdx, self.foxIdx))
         })
         present(alert, animated: true, completion: nil)
     }
@@ -107,7 +111,26 @@ class DiscussionViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier: "next", sender: (memArray, tappedBtnTag))
+        performSegue(withIdentifier: "toAnswer", sender: (memArray, tappedBtnTag))
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toAnswer"){
+            let data: (nextMemArray: [String?],
+                       nextBtnTag: Int,
+                       nextClewIdx: [Int],
+                       nextWolfIdx: [Int],
+                       nextFoxIdx: [Int?]) = (
+                        sender as? ([String?], Int, [Int], [Int], [Int?])
+                       )!
+            if let nextVC = segue.destination as? AnswerViewController{
+                nextVC.memArray = data.nextMemArray
+                nextVC.tappedBtnTag = data.nextBtnTag
+                nextVC.clewIdx = data.nextClewIdx
+                nextVC.wolfIdx = data.nextWolfIdx
+                nextVC.foxIdx = data.nextFoxIdx
+            }
+        }
     }
 
 }
