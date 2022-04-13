@@ -28,7 +28,6 @@ class DiscussionViewController: UIViewController {
     @IBOutlet weak var stopBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(memAndWord)
 //      時間表示
         min = time
         sec = 0
@@ -114,7 +113,9 @@ class DiscussionViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier: "toAnswer", sender: (memArray, tappedBtnTag, memAndWord))
+        performSegue(withIdentifier: "toAnswer", sender: (
+            memArray, tappedBtnTag, memAndWord)
+        )
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,8 +123,8 @@ class DiscussionViewController: UIViewController {
             let data: (nextMemArray: [String?],
                        nextBtnTag: Int,
                        nextMemAndWord: [String: [String]]) = (
-                        sender as? ([String?], Int, [String: [String]]
-                                   ))!
+                        sender as? ([String], Int, [String: [String]])
+                       )!
             if let nextVC = segue.destination as? AnswerViewController{
                 nextVC.memArray = data.nextMemArray
                 nextVC.tappedBtnTag = data.nextBtnTag
@@ -131,5 +132,4 @@ class DiscussionViewController: UIViewController {
             }
         }
     }
-
 }

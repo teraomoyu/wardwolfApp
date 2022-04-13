@@ -456,10 +456,10 @@
             </objects>
             <point key="canvasLocation" x="3637.68115942029" y="128.57142857142856"/>
         </scene>
-        <!--Answer View Controler-->
+        <!--Answer View Controller-->
         <scene sceneID="xvm-ec-bA0">
             <objects>
-                <viewController id="Nnf-Fr-hc4" customClass="AnswerViewControler" customModule="wordwolf" sceneMemberID="viewController">
+                <viewController id="Nnf-Fr-hc4" customClass="AnswerViewController" customModule="wordwolf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FQ4-NJ-zil">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
