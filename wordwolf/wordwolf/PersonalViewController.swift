@@ -22,7 +22,7 @@ class PersonalViewController: UIViewController {
     var clewIdx = [Int?]()
     var wolfIdx = [Int?]()
     var foxIdx = [Int?]()
-    
+    var memAndWord: [String: [String]] = [:]
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
@@ -78,7 +78,7 @@ class PersonalViewController: UIViewController {
     }
     
     @IBAction func tapEnterButton(_ sender: Any) {
-        performSegue(withIdentifier:  "toDiscussion", sender: (memArray, tappedBtnTag, memInt, time, clewIdx, wolfIdx, foxIdx))
+        performSegue(withIdentifier:  "toDiscussion", sender: (memArray, tappedBtnTag, memInt, time, memAndWord))
     }
     
     func pickWords() -> [String: String]{
@@ -110,19 +110,26 @@ class PersonalViewController: UIViewController {
     }
     
     func setWord(){
+        var word: String?
+        var role: String?
         if clewIdx.contains(memInt){
-            wordLabel.text = "あなたのワードは" + words["clew"]! + "です。"
+            word = words["clew"]!
+            role = "市民"
         }else if wolfIdx.contains(memInt){
-            wordLabel.text = "あなたのワードは" + words["wolf"]! + "です。"
+            word = words["wolf"]!
+            role = "人狼"
         }else if foxIdx.contains(memInt){
-            wordLabel.text = "あなたのワードは" + words["fox"]! + "です。"
+            word = words["fox"]!
+            role = "狐"
         }
+        wordLabel.text = "あなたのワードは" + word! + "です。"
+        memAndWord.updateValue([word!, role!], forKey: memArray[memInt]!)
     }
     
     func popAlert(){
         wordLabel.isHidden = true
         
-    //      ポップアップ
+    //  ポップアップ
         let configAlert = UIAlertController(
             title: "確認",
             message: "あなたは" + memArray[memInt]! + "さんですか？",
@@ -146,10 +153,8 @@ class PersonalViewController: UIViewController {
                        nextBtnTag: Int,
                        nextMemInt: Int,
                        nextTime: Int,
-                       nextClewIdx: [Int],
-                       nextWolfIdx: [Int],
-                       nextFoxIdx: [Int?]) = (
-                        sender as? ([String], Int, Int, Int, [Int], [Int], [Int?])
+                       nextMemAndWord: [String: [String]]) = (
+                        sender as? ([String], Int, Int, Int, [String: [String]])
                        )!
 //          ちゃんとnextVCを変更する！
             if let nextVC = segue.destination as? DiscussionViewController{
@@ -157,9 +162,7 @@ class PersonalViewController: UIViewController {
                 nextVC.tappedBtnTag = data.nextBtnTag
                 nextVC.memInt = data.nextMemInt
                 nextVC.time = data.nextTime
-                nextVC.clewIdx = data.nextClewIdx
-                nextVC.wolfIdx = data.nextWolfIdx
-                nextVC.foxIdx = data.nextFoxIdx
+                nextVC.memAndWord = data.nextMemAndWord
             }
         }
     }
